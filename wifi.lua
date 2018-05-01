@@ -1,6 +1,7 @@
 local was_in_setup = false
 
 local function wifi_start_app()
+	wifi.setmode(wifi.STATION)
     doifexists(cfg.main_script or 'main.lua')
 end
 
@@ -9,7 +10,6 @@ local function wifi_connected()
 
     if was_in_setup then
         tmr.alarm(0, 10000, 0, function()
-            wifi.setmode(wifi.STATION)
             wifi_start_app()
         end)
     else
