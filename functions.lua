@@ -23,15 +23,3 @@ end
 function doifexists(filename)
 	return file_exists(filename) and dofile(filename) or nil
 end
-
-function bit_force(value, pos, state)
-    return bit[state and 'set' or 'clear'](value, pos)
-end
-
-function bytes2short(bytes)
-    if bytes == nil then
-        return nil
-    end
-
-    return bit.bor(bit.lshift(bytes:byte(1), 8), bytes:byte(2))
-end

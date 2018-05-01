@@ -34,7 +34,9 @@ end
 
 function main_next_call(resp)
     log('scheduling next call')
-    log('free ram', node.heap())
+	if cfg.debug then
+		log('free ram', node.heap())
+	end
     tmr.alarm(0, cfg.submit_interval or 15000, 1, main)
 end
 
